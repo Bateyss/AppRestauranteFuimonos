@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cvPlatillo"
+        android:layout_width="match_parent"
+        android:layout_height="107dp"
+        android:layout_marginStart="@dimen/space_2x"
+        android:layout_marginTop="@dimen/space_default"
+        android:layout_marginEnd="@dimen/space_2x"
+        android:layout_marginBottom="@dimen/space_2x"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="8dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivFoodImage"
+                android:layout_width="100dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="@dimen/space_2x"
+                android:layout_marginTop="@dimen/space_default"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toBottomOf="@+id/tvFoodPrice"
+                app:layout_constraintDimensionRatio="4:3"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tvFoodName"
+                tools:srcCompat="@drawable/food_sample" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvFoodName"
+                style="@style/TextViewTitleStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_default"
+                android:layout_marginTop="@dimen/space_default"
+                android:layout_marginEnd="@dimen/space_default"
+                android:text="@{food.name}"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/ivFoodImage"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="La Doble!" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvPrecioPedido"
+                style="@style/TextViewTitleStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@{food.name}"
+                android:textSize="20sp"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/ivFoodImage"
+                app:layout_constraintTop_toBottomOf="@+id/tvFoodName"
+                tools:text="$" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/btnHabilitar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="108dp"
+                android:layout_marginBottom="4dp"
+                android:background="@drawable/add_food_enable_backgroud"
+                android:includeFontPadding="false"
+                android:paddingStart="@dimen/space_2x"
+                android:paddingTop="@dimen/space_4n"
+                android:paddingEnd="@dimen/space_2x"
+                android:paddingBottom="@dimen/space_4n"
+                android:text="Habilitar"
+                android:textColor="@android:color/white"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/btnInhabilitar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="108dp"
+                android:layout_marginBottom="4dp"
+                android:background="@drawable/add_food_disabled_background"
+                android:includeFontPadding="false"
+                android:paddingStart="@dimen/space_2x"
+                android:paddingTop="@dimen/space_4n"
+                android:paddingEnd="@dimen/space_2x"
+                android:paddingBottom="@dimen/space_4n"
+                android:text="Inhabilitar"
+                android:textColor="@android:color/white"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:visibility="invisible"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/btnAdd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="4dp"
+                android:background="@drawable/add_food_action_bacground"
+                android:includeFontPadding="false"
+                android:paddingStart="@dimen/space_2x"
+                android:paddingTop="@dimen/space_4n"
+                android:paddingEnd="@dimen/space_2x"
+                android:paddingBottom="@dimen/space_4n"
+                android:text="Agregar"
+                android:textColor="@android:color/white"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+</LinearLayout>

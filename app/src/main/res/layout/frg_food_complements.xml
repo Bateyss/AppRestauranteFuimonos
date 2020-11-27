@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivBack"
+        style="@style/SelectableBorderlesStyle"
+        android:layout_width="36dp"
+        android:layout_height="21dp"
+        android:layout_marginTop="24dp"
+        android:src="@drawable/ic_left_arrow"
+        app:layout_constraintStart_toStartOf="@+id/rvComplementsArea"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvSelectComplements"
+        style="@style/TextViewTitleStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/select_complements"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivBack" />
+
+    <View
+        android:id="@+id/separator1"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="@dimen/space_6x"
+        android:layout_marginTop="@dimen/space_2x"
+        android:layout_marginEnd="@dimen/space_6x"
+        android:background="@color/separatorColor"
+        app:layout_constraintEnd_toEndOf="@+id/tvSelectComplements"
+        app:layout_constraintStart_toStartOf="@+id/tvSelectComplements"
+        app:layout_constraintTop_toBottomOf="@+id/tvSelectComplements" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardFoodQuantity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_2x"
+        android:layout_marginTop="@dimen/space_2x"
+        android:layout_marginEnd="@dimen/space_2x"
+        android:layout_marginBottom="@dimen/space_2x"
+        app:cardBackgroundColor="@android:color/white"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/separator1">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/hlItVImgFood"
+                android:layout_width="0dp"
+                android:layout_height="75dp"
+                android:layout_marginStart="@dimen/space_2x"
+                android:layout_marginTop="@dimen/space_default"
+                android:layout_marginBottom="@dimen/space_4n"
+                app:cardCornerRadius="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="9:7"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@drawable/food_sample">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivFoodImageAdicionales"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvFoodName"
+                style="@style/TextViewTitleStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_4x"
+                android:layout_marginEnd="@dimen/space_default"
+                android:text="@{viewModel.food.name}"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+                app:layout_constraintBottom_toTopOf="@+id/tvFoodPrice"
+                app:layout_constraintEnd_toStartOf="@+id/npFoodQuantity"
+                app:layout_constraintStart_toEndOf="@+id/hlItVImgFood"
+                app:layout_constraintTop_toTopOf="@+id/npFoodQuantity"
+                app:layout_constraintVertical_chainStyle="spread"
+                tools:text="La Doble!" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvFoodPrice"
+                style="@style/TextViewTitleStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{@string/price_x(viewModel.food.price)}"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+                app:layout_constraintBottom_toBottomOf="@+id/npFoodQuantity"
+                app:layout_constraintStart_toStartOf="@+id/tvFoodName"
+                app:layout_constraintTop_toBottomOf="@+id/tvFoodName"
+                tools:text="$6.99" />
+
+            <com.travijuu.numberpicker.library.NumberPicker
+                android:id="@+id/npFoodQuantity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_default"
+                android:layout_marginEnd="@dimen/space_2x"
+                android:layout_marginBottom="@dimen/space_default"
+                app:custom_layout="@layout/custom_number_picker_layout"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:max="99"
+                app:min="1" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <View
+        android:id="@+id/separator2"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="@dimen/space_default"
+        android:layout_marginTop="@dimen/space_2x"
+        android:layout_marginEnd="@dimen/space_default"
+        android:background="@color/separatorColor"
+        app:layout_constraintEnd_toEndOf="@+id/cardFoodQuantity"
+        app:layout_constraintStart_toStartOf="@+id/cardFoodQuantity"
+        app:layout_constraintTop_toBottomOf="@+id/cardFoodQuantity" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvComplementsArea"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/separator3"
+        app:layout_constraintEnd_toEndOf="@+id/separator2"
+        app:layout_constraintStart_toStartOf="@+id/separator2"
+        app:layout_constraintTop_toBottomOf="@+id/separator2" />
+
+    <View
+        android:id="@+id/separator3"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="@dimen/space_default"
+        android:layout_marginTop="@dimen/space_2x"
+        android:layout_marginEnd="@dimen/space_default"
+        android:layout_marginBottom="@dimen/space_default"
+        android:background="@color/separatorColor"
+        app:layout_constraintBottom_toTopOf="@+id/btnAddToShoppingCart"
+        app:layout_constraintEnd_toEndOf="@+id/cardFoodQuantity"
+        app:layout_constraintStart_toStartOf="@+id/cardFoodQuantity" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnAddToShoppingCart"
+        style="@style/PrimaryButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/space_default"
+        android:paddingTop="@dimen/space_default"
+        android:paddingBottom="@dimen/space_default"
+        android:text="@string/add_to_shopping_cart"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!--<ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:visibility="visible"
+        tools:visibility="visible"
+        app:layout_constraintStart_toStartOf="@+id/svComplementsArea"
+        app:layout_constraintTop_toTopOf="@+id/svComplementsArea"
+        app:layout_constraintEnd_toEndOf="@+id/svComplementsArea"
+        app:layout_constraintBottom_toBottomOf="@+id/svComplementsArea" /> -->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

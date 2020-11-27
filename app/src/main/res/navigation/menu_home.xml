@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/menuHome"
+    app:startDestination="@+id/ordenesActuales">
+
+
+    <fragment
+        android:id="@+id/ordenesActuales"
+        android:name="com.fm.modules.app.menu.OrdenesActuales"
+        android:label="OrdenesActuales"
+        tools:layout="@layout/fragment_ordenes_actuales"/>
+
+</navigation>
